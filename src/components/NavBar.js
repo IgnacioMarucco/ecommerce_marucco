@@ -15,7 +15,7 @@ export const NavBar = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto">
+          <Nav className="ms-auto text-center">
             <Nav.Link href="#home">Inicio</Nav.Link>
             <Nav.Link href="#conocenos">Conocenos</Nav.Link>
             <NavDropdown title="Productos" id="collasible-nav-dropdown">
