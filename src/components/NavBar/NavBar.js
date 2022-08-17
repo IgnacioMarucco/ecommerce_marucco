@@ -1,6 +1,7 @@
 import React from 'react';
 import {Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
 import './NavBar.css';
+import logo from '../../assets/img/logo.webp';
 
 export const NavBar = () => {
   return (
@@ -9,7 +10,7 @@ export const NavBar = () => {
         <Navbar.Brand href="#home">
           <img
               alt="logo de la empresa."
-              src="../../assets/img/logo.webp"
+              src={logo}
             />
           JC Store
         </Navbar.Brand>
