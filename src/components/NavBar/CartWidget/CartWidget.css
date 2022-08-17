@@ -1,0 +1,23 @@
+.shake {
+    animation: shake 1s ease 1;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    15%,
+    45%,
+    75% {
+        transform: translateY(-3px);
+    }
+
+    30%,
+    60%,
+    90% {
+        transform: translateY(3px);
+    }
+}
