@@ -3,8 +3,12 @@ import { ItemDetail } from './ItemDetail/ItemDetail';
 
 import { arrayProducts } from '../../data/arrayProducts';
 
+import Spinner from 'react-bootstrap/Spinner';
+
+
 export const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const getProducts = () => {
     return new Promise((resolve, reject) => {
@@ -19,6 +23,7 @@ export const ItemDetailContainer = () => {
       try {
         const data = await getProducts();
         setProduct(data.find(product => product.id === 1));
+        setLoading(false);
       } catch (error) {
         console.log("Hubo un error")
       }
@@ -29,7 +34,13 @@ export const ItemDetailContainer = () => {
 
   return (
     <>
-      <ItemDetail key={product.id} item = {product}/>
+      {
+        loading ?
+        <Spinner animation="grow" variant="primary" style={{display: "flex", margin: "0 auto"}}/>
+        :
+        <ItemDetail key={product.id} item = {product}/>
+      }
+
     </>
   )
 };

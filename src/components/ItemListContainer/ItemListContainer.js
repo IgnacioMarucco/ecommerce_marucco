@@ -4,8 +4,11 @@ import { arrayProducts } from '../../data/arrayProducts';
 
 import {ItemList} from './ItemList.js';
 
+import Spinner from 'react-bootstrap/Spinner';
+
 export const ItemListContainer = ({greeting}) => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const getProducts = () => {
     return new Promise((resolve, reject) => {
@@ -20,6 +23,7 @@ export const ItemListContainer = ({greeting}) => {
       try {
         const data = await getProducts();
         setProducts(data);
+        setLoading(false);
       } catch (error) {
         console.log("Hubo un error")
       }
@@ -32,7 +36,13 @@ export const ItemListContainer = ({greeting}) => {
     <>
       <div>
         <div className='mensaje'>{greeting}</div>
-        <ItemList products = {products}/>
+        {
+          loading ? 
+          <Spinner animation="grow" variant="primary" style={{display: "flex", margin: "0 auto"}}/>
+          :
+          <ItemList products = {products}/>
+        }
+        
       </div>
     </>
 
