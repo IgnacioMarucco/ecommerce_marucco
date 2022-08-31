@@ -5,7 +5,9 @@ export const ItemList = ({products}) => {
   return (
     <div className='row row-cols-auto justify-content-center container-fluid'>
       {
-        products.map((product) => <Item product = {product}/>)
+        products.map((product) => (
+          <Item key={product.id} product = {product}/> 
+        ))
       }
     </div>
   )
