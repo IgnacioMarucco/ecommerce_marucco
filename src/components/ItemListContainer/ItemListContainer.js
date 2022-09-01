@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+// CSS
 import './ItemListContainer.css';
+// Productos
 import { arrayProducts } from '../../data/arrayProducts';
 
-import {ItemList} from './ItemList.js';
+import {ItemList} from './ItemList/ItemList.js';
 
+// Bootstrap spinner
 import Spinner from 'react-bootstrap/Spinner';
 
 export const ItemListContainer = ({greeting}) => {
@@ -42,9 +45,7 @@ export const ItemListContainer = ({greeting}) => {
           :
           <ItemList products = {products}/>
         }
-        
       </div>
     </>
-
   )
 }

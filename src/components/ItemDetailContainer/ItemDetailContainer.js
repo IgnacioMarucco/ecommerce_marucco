@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import { ItemDetail } from './ItemDetail/ItemDetail';
 
+// Productos
 import { arrayProducts } from '../../data/arrayProducts';
 
+// Bootstrap spinner
 import Spinner from 'react-bootstrap/Spinner';
-
 
 export const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
@@ -38,9 +39,8 @@ export const ItemDetailContainer = () => {
         loading ?
         <Spinner animation="grow" variant="primary" style={{display: "flex", margin: "0 auto"}}/>
         :
-        <ItemDetail key={product.id} item = {product}/>
+        <ItemDetail key={product.id} product = {product}/>
       }
-
     </>
   )
 };
