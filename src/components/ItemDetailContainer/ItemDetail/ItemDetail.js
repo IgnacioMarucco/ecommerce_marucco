@@ -21,6 +21,7 @@ export const ItemDetail = ({item}) => {
       <div className='text-center'>
         <h1>{item.name}</h1>
         <h3>${item.price}</h3>
+        <h5>Stock: {item.stock}</h5>
         <div>
           <h5>Descripción:</h5>
           <p>{item.description}</p>

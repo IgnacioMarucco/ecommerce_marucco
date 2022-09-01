@@ -12,7 +12,7 @@ export const Item = ({product}) => {
   return (
     <div className='col'>
       <Card>
-        <Card.Body className=''>
+        <Card.Body className='text-center'>
           <Card.Img src={product.pictureUrl} className='cardImg'/>
           <Card.Title>{product.name}</Card.Title>
           <Card.Text>Precio: ${product.price}</Card.Text>
