@@ -34,7 +34,7 @@ export const ItemDetailContainer = () => {
     };
 
     asyncFunction();
-  },[]);
+  },[id]);
 
   return (
     <>
