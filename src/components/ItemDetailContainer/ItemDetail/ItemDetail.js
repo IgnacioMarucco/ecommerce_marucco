@@ -18,7 +18,7 @@ export const ItemDetail = ({item}) => {
     });
   };
   return (
-    <div className='d-flex justify-content-center'>
+    <div className='d-flex justify-content-center align-items-center'>
       <img src={item.pictureUrl} alt={`Imagen de ${item.name}.`}/>
       <div className='text-center'>
         <h1>{item.name}</h1>

@@ -6,3 +6,8 @@
   text-decoration: none;
   color: #000;
 }
+
+.cardLink:hover {
+  text-decoration: none;
+  color: #000;
+}
