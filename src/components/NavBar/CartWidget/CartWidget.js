@@ -7,9 +7,10 @@ export const CartWidget = () => {
   return (
     <>
     <div className='cart'>
-      <Link to='/cart' className='link'>
-        <AiOutlineShoppingCart className='shake' /> <span> (0) </span>
-      </Link>
+      <AiOutlineShoppingCart className='shake' /> <span> (0) </span>
+      {/* <Link to='/cart' className='link'>
+        
+      </Link> */}
     </div>
     </>
     

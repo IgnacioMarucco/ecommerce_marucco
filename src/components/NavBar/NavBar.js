@@ -26,7 +26,7 @@ export const NavBar = () => {
             <NavDropdown.Item as={Link} to='/category/accesorios'>Accesorios</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link as={Link} to='/contacto'>Contacto</Nav.Link>
-            <Nav.Link><CartWidget/></Nav.Link>
+            <Nav.Link as={Link} to='/cart'><CartWidget/></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

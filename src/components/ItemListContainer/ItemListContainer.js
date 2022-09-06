@@ -17,7 +17,6 @@ export const ItemListContainer = () => {
     const asyncFunction = async () => {
       try {
         const data = await getProducts();
-
         if(!categoryId){
           setItems(data);
           setLoading(false);
