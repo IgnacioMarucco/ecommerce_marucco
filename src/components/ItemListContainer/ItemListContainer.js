@@ -1,29 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import {useParams} from 'react-router-dom';
-// CSS
-import './ItemListContainer.css';
-// Productos
-import { arrayProducts } from '../../data/arrayProducts';
-
-// Componentes
+import {getProducts} from '../../helper/helper.js';
 import {ItemList} from './ItemList/ItemList.js';
-
 // Bootstrap spinner
 import Spinner from 'react-bootstrap/Spinner';
+// CSS
+import './ItemListContainer.css';
 
 export const ItemListContainer = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const {categoryId} = useParams();
-
-  const getProducts = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(arrayProducts);
-      }, 2000);
-    })
-  };
 
   useEffect(() => {
     const asyncFunction = async () => {

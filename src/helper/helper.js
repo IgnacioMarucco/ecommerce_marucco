@@ -1,4 +1,4 @@
-export const arrayProducts = [
+const arrayProducts = [
   {
     id: 1,
     name: 'Remera',
@@ -45,3 +45,11 @@ export const arrayProducts = [
     category: "accesorios"
   }
 ];
+
+export const getProducts = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(arrayProducts);
+    }, 2000);
+  })
+};
