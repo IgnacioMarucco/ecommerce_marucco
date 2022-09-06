@@ -21,3 +21,12 @@
         transform: translateY(3px);
     }
 }
+
+.link {
+  text-decoration: none;
+  color: grey;
+}
+
+.link:hover {
+  color: white;
+}

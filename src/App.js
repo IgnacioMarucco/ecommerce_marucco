@@ -6,6 +6,7 @@ import {ItemListContainer} from './components/ItemListContainer/ItemListContaine
 import {ItemDetailContainer} from './components/ItemDetailContainer/ItemDetailContainer.js';
 import { PageConocenos } from './components/PageConocenos/PageConocenos';
 import { PageContacto } from './components/PageContacto/PageContacto';
+import { CartContainer } from './components/CartContainer/CartContainer';
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/contacto' element={<PageContacto/>}/>
         <Route path='/category/:categoryId' element={<ItemListContainer/>}></Route>
         <Route path='/item/:id' element={<ItemDetailContainer/>}></Route>
+        <Route path='/cart' element={<CartContainer/>}></Route>
       </Routes>
     </BrowserRouter>
   );
