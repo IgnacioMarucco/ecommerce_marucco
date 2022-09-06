@@ -11,14 +11,27 @@
 
 ## Dependencias
 
-`react-router.dom`  : Es una librería que nos permite el enrutamiento y navegabilidad entre los diferentes componentes de nuestra SPA. Para instalarlo se debe ejecutar en la terminal lo siguiente:
+`react-bootstrap bootstrap`  : Front-end framework.
+
+```sh
+npm install react-bootstrap bootstrap
+```
+
+
+`react-router-dom`  : Es una librería que nos permite el enrutamiento y navegabilidad entre los diferentes componentes de nuestra SPA.
 
 ```sh
 npm install react-router-dom
 ```
 
-`react-router.dom`  : Es una librería que nos permite mostrar notificaciones con una gran variedad de customizacion.
+`react-toastify`  : Es una librería que nos permite mostrar notificaciones con una gran variedad de customizacion.
 
 ```sh
  npm install --save react-toastify
+```
+
+`react-icons`  : Incluye iconos populares.
+
+```sh
+npm install react-icons --save
 ```
