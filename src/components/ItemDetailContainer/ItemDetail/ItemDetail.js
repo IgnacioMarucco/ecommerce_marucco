@@ -5,7 +5,7 @@ import {ItemCount} from '../../ItemCount/ItemCount.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const ItemDetail = ({product}) => {
+export const ItemDetail = ({item}) => {
   const agregarAlCarro = (count) => {
     toast(`Agregaste ${count} productos!`, {
       position: "top-right",
@@ -19,17 +19,17 @@ export const ItemDetail = ({product}) => {
   };
   return (
     <div className='d-flex justify-content-center'>
-      <img src={product.pictureUrl} alt={`Imagen de ${product.name}.`}/>
+      <img src={item.pictureUrl} alt={`Imagen de ${item.name}.`}/>
       <div className='text-center'>
-        <h1>{product.name}</h1>
-        <h3>${product.price}</h3>
-        <h5>Stock: {product.stock}</h5>
+        <h1>{item.name}</h1>
+        <h3>${item.price}</h3>
+        <h5>Stock: {item.stock}</h5>
         <div>
           <h5>Descripción:</h5>
-          <p>{product.description}</p>
+          <p>{item.description}</p>
         </div>
 
-        <ItemCount stock={product.stock} initial={1} onAdd={agregarAlCarro}/>
+        <ItemCount stock={item.stock} initial={1} onAdd={agregarAlCarro}/>
         <ToastContainer />  
       </div>
     </div>
