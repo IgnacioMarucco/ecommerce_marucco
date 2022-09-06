@@ -12,6 +12,7 @@
 
 ## Instalación
 -Se requiere [Node.js](https://nodejs.org/en/) para ejecutarse.
+
 -Para clonar este repositorio debe seguir las siguientes instrucciones:
 
 1 - Abra el Visual Studio Code
@@ -31,6 +32,15 @@ $ cd ecommerce_marucco
 $ npm install
 
 ```
+
+## Ejecución
+Para ejecutar este proyecto simplemente escriba y ejecute en su consola de Visual Studio Code:
+
+```sh
+npm start
+```
+>Esto hará que la aplicación se ejecute en modo de desarrollo.
+>Abra http: // localhost: 3000 para verlo en el navegador.
 
 ### Dependencias
 
@@ -58,12 +68,3 @@ npm install react-router-dom
 ```sh
 npm install react-icons --save
 ```
-
-## Ejecución
-Para ejecutar este proyecto simplemente escriba y ejecute en su consola de Visual Studio Code:
-
-```sh
-npm start
-```
->Esto hará que la aplicación se ejecute en modo de desarrollo.
->Abra http: // localhost: 3000 para verlo en el navegador.
