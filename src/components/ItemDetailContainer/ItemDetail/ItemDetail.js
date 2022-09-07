@@ -1,12 +1,19 @@
 import './ItemDetail.css';
 import {ItemCount} from '../../ItemCount/ItemCount.js';
+import {useState} from 'react';
 
+import {Link} from 'react-router-dom';
 // Toastify
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const ItemDetail = ({item}) => {
+  const [show, setShow] = useState(true);
+
   const agregarAlCarro = (count) => {
+    // Ocultar Boton
+    setShow(false);
+    // Mostrar Notificacion
     toast(`Agregaste ${count} productos!`, {
       position: "top-right",
       autoClose: 3000,
@@ -28,9 +35,13 @@ export const ItemDetail = ({item}) => {
           <h5>Descripción:</h5>
           <p>{item.description}</p>
         </div>
-
-        <ItemCount stock={item.stock} initial={1} onAdd={agregarAlCarro}/>
-        <ToastContainer />  
+        {
+          show ?
+          <ItemCount stock={item.stock} initial={1} onAdd={agregarAlCarro}/>
+          :
+          <Link to='/cart'><button>Terminar la Compra</button></Link>
+        }
+        <ToastContainer /> 
       </div>
     </div>
   )
