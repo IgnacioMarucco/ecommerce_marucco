@@ -1,16 +1,24 @@
 import './ItemDetail.css';
 import {ItemCount} from '../../ItemCount/ItemCount.js';
-import {useState} from 'react';
+import {useContext, useState} from 'react';
+import { CartContext } from '../../../context/CartContext';
 
 import {Link} from 'react-router-dom';
 // Toastify
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// Bootstrap
+import Button from 'react-bootstrap/Button';
 
 export const ItemDetail = ({item}) => {
   const [show, setShow] = useState(true);
+  // Funcion para agregar items al carro:
+  const {addItem} = useContext(CartContext);
 
   const agregarAlCarro = (count) => {
+    // Agregar item al carro, especificando tambien la cantidad.
+    addItem(item,count);
+
     // Ocultar Boton
     setShow(false);
     // Mostrar Notificacion
@@ -39,7 +47,7 @@ export const ItemDetail = ({item}) => {
           show ?
           <ItemCount stock={item.stock} initial={1} onAdd={agregarAlCarro}/>
           :
-          <Link to='/cart'><button>Terminar la Compra</button></Link>
+          <Link to='/cart'><Button variant='success'>Terminar la Compra</Button></Link>
         }
         <ToastContainer /> 
       </div>

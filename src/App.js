@@ -9,21 +9,24 @@ import { PageContacto } from './components/PageContacto/PageContacto';
 import { CartContainer } from './components/CartContainer/CartContainer';
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { CartProvider } from './context/CartContext';
 
 function App() {
   return (
-    <BrowserRouter>
-      <NavBar/>
-      <Routes>
-        <Route path='/' element={<ItemListContainer/>}/>
-        <Route path='/conocenos' element={<PageConocenos/>}/>
-        <Route path='/productos' element={<ItemListContainer/>}/>
-        <Route path='/contacto' element={<PageContacto/>}/>
-        <Route path='/category/:categoryId' element={<ItemListContainer/>}></Route>
-        <Route path='/item/:id' element={<ItemDetailContainer/>}></Route>
-        <Route path='/cart' element={<CartContainer/>}></Route>
-      </Routes>
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
+        <NavBar/>
+        <Routes>
+          <Route path='/' element={<ItemListContainer/>}/>
+          <Route path='/conocenos' element={<PageConocenos/>}/>
+          <Route path='/productos' element={<ItemListContainer/>}/>
+          <Route path='/contacto' element={<PageContacto/>}/>
+          <Route path='/category/:categoryId' element={<ItemListContainer/>}></Route>
+          <Route path='/item/:id' element={<ItemDetailContainer/>}></Route>
+          <Route path='/cart' element={<CartContainer/>}></Route>
+        </Routes>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 
