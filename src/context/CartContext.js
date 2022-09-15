@@ -8,6 +8,7 @@ export const CartContext = createContext();
 export const CartProvider = ({children}) => {
   // Listado de productos del carro. Como va a cambiar lo creo como variable de estado y lo inicializo vacio.
   const [itemCartList, setItemCartList] = useState([]);
+  // const [totalQuantity, setTotalQuantity] = useState(0);
 
   // Funcion para verificar si el item ya existe en el carro (gracias a un id unico):
   const isInCart = (idItem) => {
@@ -20,11 +21,17 @@ export const CartProvider = ({children}) => {
     // No puedo modificar directamente itemCartList, por lo tanto me valgo de newList auxiliar para agregarle el contenido de itemCartList, mas el item nuevo con su cantidad. Recordar que tampoco puedo modificar directamente el item. Por eso utilizo newItem auxiliar y le agrego la propiedad quantity con la cantidad elegida por el usuario.
     const newList = [...itemCartList];
     if(isInCart(item.id)){
+      // Si existe el producto:
+      // Definimos la ubicacion del item
       const itemIndex = itemCartList.findIndex(element => element.id === item.id);
+      // Modificamos su cantidad
       newList[itemIndex].quantity = newList[itemIndex].quantity + count;
+      // Modificamos el precio total
+      newList[itemIndex].totalPrice = newList[itemIndex].quantity * newList[itemIndex].price;
       setItemCartList(newList);
     } else {
-      const newItem = {...item, quantity: count};
+      // Si no existe el producto, agregamos las propiedades quantity y totalPrice, y lo agregamos al carro
+      const newItem = {...item, quantity: count, totalPrice: count * item.price};
       const newList = [...itemCartList , newItem ];
       setItemCartList(newList);
     }
@@ -42,8 +49,14 @@ export const CartProvider = ({children}) => {
     setItemCartList([]);
   }
 
+  // Funcion para obtener la cantidad (quantity) total de items en el carro
+  const getTotalQuantity = () => {
+    const totalQuantity = itemCartList.reduce((acc, item) => acc + item.quantity, 0);
+    return totalQuantity;
+  }
+
   return (
-    <CartContext.Provider value={{itemCartList, addItem, removeItem, clearCart}}>
+    <CartContext.Provider value={{itemCartList, addItem, removeItem, clearCart, getTotalQuantity}}>
       {children}
     </CartContext.Provider>
   )

@@ -17,6 +17,7 @@ export const CartItem = ({item}) => {
           <Card.Title>{item.name}</Card.Title>
           <Card.Text>Precio por Unidad: ${item.price}</Card.Text>
           <Card.Text>Cantidad: {item.quantity}</Card.Text>
+          <Card.Text>Precio Total: ${item.totalPrice}</Card.Text>
           <Button variant="danger" onClick={()=>removeItem(item.id)}>Eliminar producto</Button>
         </Card.Body>
       </Card>

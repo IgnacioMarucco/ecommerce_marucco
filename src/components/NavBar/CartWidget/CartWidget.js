@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './CartWidget.css';
 import { AiOutlineShoppingCart} from 'react-icons/ai';
-import {Link} from 'react-router-dom';
+import { CartContext } from '../../../context/CartContext';
 
 export const CartWidget = () => {
+  // Obtengo la cantidad total de productos del CartContext
+  const {getTotalQuantity} = useContext(CartContext);
   return (
     <>
     <div className='cart'>
-      <AiOutlineShoppingCart className='shake' /> <span> (0) </span>
-      {/* <Link to='/cart' className='link'>
-        
-      </Link> */}
+      <AiOutlineShoppingCart className='shake' /> <span> {getTotalQuantity() > 0 ? getTotalQuantity() : ""} </span>
     </div>
     </>
     
