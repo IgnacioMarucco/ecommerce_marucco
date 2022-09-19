@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import {Link} from 'react-router-dom';
 
 export const CartContainer = () => {
-  const {itemCartList, clearCart} = useContext(CartContext);
+  const {itemCartList, clearCart, getTotalPrice} = useContext(CartContext);
   return (
     <>
       {
@@ -21,6 +21,7 @@ export const CartContainer = () => {
                 ))
               }
             </div>
+            <h5>Total: ${getTotalPrice()}</h5>
             <Button className='clearBtn align-self-center' variant="danger" onClick={clearCart}>Vaciar el Carro</Button>
           </div>
           :
