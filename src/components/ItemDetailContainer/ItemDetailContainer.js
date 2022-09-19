@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import { ItemDetail } from './ItemDetail/ItemDetail';
-import {getProducts} from '../../helper/helper.js';
+
+import {doc, getDoc} from 'firebase/firestore';
+import { db } from '../../utils/firebase';
 // Bootstrap spinner
 import Spinner from 'react-bootstrap/Spinner';
 
@@ -11,18 +13,21 @@ export const ItemDetailContainer = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const asyncFunction = async () => {
+    const getData = async () => {
       try {
-        const data = await getProducts();
-        const item = data.find((item) => item.id === Number(id));
-        setItem(item);
+        let queryRef = doc(db, "items", id);
+        const response = await getDoc(queryRef);
+        const newDoc = {
+          ...response.data(),
+          id:response.id
+        }
+        setItem(newDoc);
         setLoading(false);
       } catch (error) {
-        console.log("Hubo un error")
+        console.log(error)
       }
-    };
-
-    asyncFunction();
+    }
+    getData();
   },[id]);
 
   return (
