@@ -1,10 +1,12 @@
 import React from 'react';
-import './CartContainer.css';
 import {useContext} from 'react';
-import { CartContext } from '../../context/CartContext';
+import {CartContext} from '../../context/CartContext';
 import {CartItem} from './CartItem/CartItem';
-import Button from 'react-bootstrap/Button';
 import {Link} from 'react-router-dom';
+// Bootstrap
+import Button from 'react-bootstrap/Button';
+// CSS
+import './CartContainer.css';
 
 export const CartContainer = () => {
   const {itemCartList, clearCart, getTotalPrice} = useContext(CartContext);

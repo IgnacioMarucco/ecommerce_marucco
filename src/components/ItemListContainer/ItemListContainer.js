@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import {ItemList} from './ItemList/ItemList.js';
-import { Loading } from '../Loading/Loading.js';
+import {Loader} from '../Loader/Loader.js';
 // Firebase
 import {collection, getDocs, query, where} from 'firebase/firestore';
 // base de datos
@@ -40,7 +40,7 @@ export const ItemListContainer = () => {
     <>
       <div>
         {
-          loading ? <Loading/> : <ItemList items = {items}/>
+          loading ? <Loader/> : <ItemList items = {items}/>
         }
       </div>
     </>

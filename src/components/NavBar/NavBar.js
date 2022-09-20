@@ -1,10 +1,11 @@
 import React from 'react';
-import {Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
-import './NavBar.css';
-import logo from '../../assets/img/logo.webp';
 import {CartWidget} from './CartWidget/CartWidget.js';
-
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import logo from '../../assets/img/logo.webp';
+// Bootstrap
+import {Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
+// CSS
+import './NavBar.css';
 
 export const NavBar = () => {
   return (

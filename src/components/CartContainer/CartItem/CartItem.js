@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import { CartContext } from '../../../context/CartContext';
-import './CartItem.css';
-
+import React, {useContext} from 'react';
+import {CartContext} from '../../../context/CartContext';
 // Bootstrap
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+// CSS
+import './CartItem.css';
 
 export const CartItem = ({item}) => {
   const {removeItem} = useContext(CartContext);

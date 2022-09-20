@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
-import { ItemDetail } from './ItemDetail/ItemDetail';
-import { Loading } from '../Loading/Loading';
+import {ItemDetail} from './ItemDetail/ItemDetail';
+import {Loader} from '../Loader/Loader'; 
 // Firebase
 import {doc, getDoc} from 'firebase/firestore';
-import { db } from '../../utils/firebase';
+import {db} from '../../utils/firebase';
 
 export const ItemDetailContainer = () => {
   const {id} = useParams();
@@ -32,7 +32,7 @@ export const ItemDetailContainer = () => {
   return (
     <>
       {
-        loading ? <Loading/> : <ItemDetail key={item.id} item = {item}/>
+        loading ? <Loader/> : <ItemDetail key={item.id} item = {item}/>
       }
     </>
   )

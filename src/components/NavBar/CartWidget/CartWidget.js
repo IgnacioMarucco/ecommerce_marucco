@@ -1,7 +1,9 @@
-import React, { useContext } from 'react';
+import React, {useContext} from 'react';
+import {CartContext} from '../../../context/CartContext';
+// Icons
+import {AiOutlineShoppingCart} from 'react-icons/ai';
+// CSS
 import './CartWidget.css';
-import { AiOutlineShoppingCart} from 'react-icons/ai';
-import { CartContext } from '../../../context/CartContext';
 
 export const CartWidget = () => {
   // Obtengo la cantidad total de productos del CartContext
@@ -12,6 +14,5 @@ export const CartWidget = () => {
       <AiOutlineShoppingCart className='shake' /> <span> {getTotalQuantity() > 0 ? getTotalQuantity() : ""} </span>
     </div>
     </>
-    
   )
 }

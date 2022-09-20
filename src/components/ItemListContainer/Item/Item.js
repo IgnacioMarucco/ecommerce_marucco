@@ -1,11 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-// CSS
-import './Item.css';
-
 // Bootstrap
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+// CSS
+import './Item.css';
 
 export const Item = ({item}) => {
 
