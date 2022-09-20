@@ -2,7 +2,7 @@ import React from 'react';
 import './CartContainer.css';
 import {useContext} from 'react';
 import { CartContext } from '../../context/CartContext';
-import {CartItem} from '../CartItem/CartItem';
+import {CartItem} from './CartItem/CartItem';
 import Button from 'react-bootstrap/Button';
 import {Link} from 'react-router-dom';
 

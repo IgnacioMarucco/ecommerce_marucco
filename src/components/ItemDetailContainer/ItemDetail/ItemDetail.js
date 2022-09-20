@@ -1,14 +1,14 @@
-import './ItemDetail.css';
 import {ItemCount} from '../../ItemCount/ItemCount.js';
 import {useContext, useState} from 'react';
 import { CartContext } from '../../../context/CartContext';
-
 import {Link} from 'react-router-dom';
 // Toastify
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // Bootstrap
 import Button from 'react-bootstrap/Button';
+// CSS
+import './ItemDetail.css';
 
 export const ItemDetail = ({item}) => {
   const [show, setShow] = useState(true);

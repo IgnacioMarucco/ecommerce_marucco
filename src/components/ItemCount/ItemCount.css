@@ -5,11 +5,14 @@
   align-items: center;
 }
 
-
 .counter{
   display: flex;
   flex-direction: row;
 
   text-align: center;
   justify-content: center;
+}
+
+button {
+  margin: 0px 10px;
 }
