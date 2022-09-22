@@ -8,24 +8,6 @@ import { UserForm } from '../UserForm/UserForm';
 
 export const Checkout = () => {
   const {itemCartList, getTotalPrice, clearCart} = useContext(CartContext)
-  const [userForm, setUserForm] = useState({
-    name: '',
-    surname: '',
-    phone: '',
-    email: '', 
-  })
-
-  const formInputs = [
-    {title: "Nombre", inputName: "name", type: "text"},
-    {title: "Apellido", inputName: "surname", type: "text"},
-    {title: "Telefono", inputName: "phone", type: "number"},
-    {title: "Email", inputName: "email", type: "email"}
-  ];
-
-  const onInputChange = (e) => {
-    setUserForm({...userForm, [e.target.name]: e.target.value})
-  }
-
   const [idOrder, setIdOrder] = useState('');
 
   const updateStock = () => {
@@ -67,7 +49,7 @@ export const Checkout = () => {
         ?
         <UserOrder idOrder={idOrder}/>
         :
-        <UserForm sendOrder={sendOrder} onInputChange={onInputChange} formInputs={formInputs} userForm={userForm} itemCartList={itemCartList}/>
+        <UserForm sendOrder={sendOrder} itemCartList={itemCartList}/>
       }
     </>
   );
