@@ -1,7 +1,6 @@
-import React from 'react';
-import {useContext} from 'react';
+import React, {useContext} from 'react';
+import {CartList} from './CartList/CartList';
 import {CartContext} from '../../context/CartContext';
-import {CartItem} from './CartItem/CartItem';
 import {Link} from 'react-router-dom';
 // Bootstrap
 import Button from 'react-bootstrap/Button';
@@ -9,23 +8,12 @@ import Button from 'react-bootstrap/Button';
 import './CartContainer.css';
 
 export const CartContainer = () => {
-  const {itemCartList, clearCart, getTotalPrice} = useContext(CartContext);
+  const {itemCartList} = useContext(CartContext);
   return (
     <>
       {
         itemCartList.length > 0 ?
-          <div className='d-flex flex-column justify-content-center text-center'>
-            <h1 className='text-center'>Tu Carrito:</h1>
-            <div className='row row-cols-auto justify-content-center container-fluid align-self-center'>
-              {
-                itemCartList.map(item => (
-                  <CartItem key={item.id} item={item}/>
-                ))
-              }
-            </div>
-            <h5>Total: ${getTotalPrice()}</h5>
-            <Button className='clearBtn align-self-center' variant="danger" onClick={clearCart}>Vaciar el Carro</Button>
-          </div>
+          <CartList/>
           :
           <div className='d-flex flex-column'>
             <h1 className='text-center'>No hay productos en tu Carro</h1>
@@ -33,6 +21,5 @@ export const CartContainer = () => {
           </div>
       }
     </>
-
   )
 }

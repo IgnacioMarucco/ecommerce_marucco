@@ -13,8 +13,7 @@ import './ItemDetail.css';
 export const ItemDetail = ({item}) => {
   const [show, setShow] = useState(true);
   // Funcion para agregar items al carro:
-  const {addItem} = useContext(CartContext);
-
+  const {addItem, itemQuantityCart} = useContext(CartContext);
   const agregarAlCarro = (count) => {
     // Agregar item al carro, especificando tambien la cantidad.
     addItem(item,count);
@@ -45,7 +44,7 @@ export const ItemDetail = ({item}) => {
         </div>
         {
           show ?
-          <ItemCount stock={item.stock} initial={1} onAdd={agregarAlCarro}/>
+          <ItemCount item={item} itemQuantityCart={itemQuantityCart} initial={1} onAdd={agregarAlCarro}/>
           :
           <Link to='/cart'><Button variant='success'>Terminar la Compra</Button></Link>
         }

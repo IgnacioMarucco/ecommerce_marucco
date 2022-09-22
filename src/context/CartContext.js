@@ -1,29 +1,44 @@
-import {createContext} from "react";
-import {useState} from "react";
+import {createContext, useEffect, useState} from "react";
 
 // Creo el contexto
 export const CartContext = createContext();
 
 // Componente para que los children tengan acceso a las variables y funciones que necesitemos (retornando el proveedor del contexto)
 export const CartProvider = ({children}) => {
-  // Listado de productos del carro. Como va a cambiar lo creo como variable de estado y lo inicializo vacio.
-  const [itemCartList, setItemCartList] = useState([]);
-  // const [totalQuantity, setTotalQuantity] = useState(0);
+  // Listado de productos del carro. Como va a cambiar lo creo como variable de estado
+  const [itemCartList, setItemCartList] = useState(JSON.parse(localStorage.getItem('cart')) || []);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(itemCartList));
+  },[itemCartList])
 
   // Funcion para verificar si el item ya existe en el carro (gracias a un id unico):
   const isInCart = (idItem) => {
-    const elementExist = itemCartList.some((elemento) => elemento.id === idItem);
-    return elementExist;
+    return itemCartList.some((elemento) => elemento.id === idItem);
+  }
+
+  // Funcion para encontrar X item
+  const findItemIndex = (item) => {
+    return itemCartList.findIndex(element => element.id === item.id); 
+  }
+
+  // Funcion para evitar superar la cantidad de items en stock al agregar el mismo item reiteradas veces
+  const itemQuantityCart = (item) => {
+    const itemIndex = findItemIndex(item);
+    if (itemIndex < 0 ) {
+      return 0;
+    } else {
+      return itemCartList[itemIndex].quantity;
+    }
   }
 
   // Funcion para agregar item al carro (le doy el item y la cantidad q eligio el usuario):
   const addItem = (item, count) => {
-    // No puedo modificar directamente itemCartList, por lo tanto me valgo de newList auxiliar para agregarle el contenido de itemCartList, mas el item nuevo con su cantidad. Recordar que tampoco puedo modificar directamente el item. Por eso utilizo newItem auxiliar y le agrego la propiedad quantity con la cantidad elegida por el usuario.
     const newList = [...itemCartList];
     if(isInCart(item.id)){
       // Si existe el producto:
       // Definimos la ubicacion del item
-      const itemIndex = itemCartList.findIndex(element => element.id === item.id);
+      const itemIndex = findItemIndex(item);
       // Modificamos su cantidad
       newList[itemIndex].quantity = newList[itemIndex].quantity + count;
       // Modificamos el precio total
@@ -56,7 +71,6 @@ export const CartProvider = ({children}) => {
   }
 
   // Funcion para obtener el precio total
-
   const getTotalPrice = () => {
     return itemCartList.reduce((acc,item) => acc + item.price * item.quantity, 0);
   }
@@ -68,7 +82,8 @@ export const CartProvider = ({children}) => {
       removeItem, 
       clearCart, 
       getTotalQuantity, 
-      getTotalPrice
+      getTotalPrice,
+      itemQuantityCart
     }}>
       {children}
     </CartContext.Provider>
