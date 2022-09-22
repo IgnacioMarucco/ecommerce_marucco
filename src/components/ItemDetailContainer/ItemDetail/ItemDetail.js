@@ -46,7 +46,11 @@ export const ItemDetail = ({item}) => {
           show ?
           <ItemCount item={item} itemQuantityCart={itemQuantityCart} initial={1} onAdd={agregarAlCarro}/>
           :
-          <Link to='/cart'><Button variant='success'>Terminar la Compra</Button></Link>
+          <>
+            <Link to='/'><Button variant='primary'>Continuar Comprando</Button></Link>
+            <Link to='/cart'><Button variant='success'>Terminar la Compra</Button></Link>
+          </>
+
         }
         <ToastContainer /> 
       </div>
