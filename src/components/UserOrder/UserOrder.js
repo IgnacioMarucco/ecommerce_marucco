@@ -1,8 +1,9 @@
-import { doc, getDoc } from 'firebase/firestore';
 import React, {useState, useEffect} from 'react';
-import { db } from '../../utils/firebase';
 import { Loader } from '../Loader/Loader';
+
 import {Link} from 'react-router-dom';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../utils/firebase';
 // Bootstrap
 import Button from 'react-bootstrap/Button';
 

@@ -10,7 +10,7 @@ export const ItemDetailContainer = () => {
   const {id} = useParams();
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState(true);
-
+  document.title = `${item.name} - JC Store`;
   useEffect(() => {
     const getData = async () => {
       try {

@@ -13,6 +13,8 @@ export const ItemListContainer = () => {
 
   const {categoryId} = useParams();
 
+  document.title = categoryId ? `JC Store - ${categoryId}` : `JC Store` ;
+
   useEffect(() => {
     const getData = async () => {
       try {

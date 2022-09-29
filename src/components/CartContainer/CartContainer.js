@@ -9,6 +9,7 @@ import './CartContainer.css';
 
 export const CartContainer = () => {
   const {itemCartList} = useContext(CartContext);
+  document.title = `JC Store - Carro`;
   return (
     <>
       {
